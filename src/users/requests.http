@@ -9,16 +9,16 @@ content-type: application/json
 }
 
 ### Find a particular user with a given ID
-GET http://localhost:3001/auth/2
+GET http://localhost:3001/auth/1313
 
 ### Find all users with a diven email
 GET http://localhost:3001/auth?email=qwe@qwe.com
 
 ### Delete a user given id
-DELETE http://localhost:3001/auth/1
+DELETE http://localhost:3001/auth/132123
 
 ### Update a user
-PATCH  http://localhost:3001/auth/2
+PATCH  http://localhost:3001/auth/112312
 content-type: application/json
 
 {
