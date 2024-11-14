@@ -7,3 +7,9 @@ content-type: application/json
   "email": "qwe@qwe.com",
   "password": "qwe123qwe"
 }
+
+### Find a particular user with a given ID
+GET http://localhost:3001/auth/1
+
+### Find all users with a diven email
+GET http://localhost:3001/auth?email=qwe@qwe.com
