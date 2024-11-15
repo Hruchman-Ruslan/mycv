@@ -9,7 +9,7 @@ content-type: application/json
 }
 
 ### Find a particular user with a given ID
-GET http://localhost:3001/auth/1313
+GET http://localhost:3001/auth/2
 
 ### Find all users with a diven email
 GET http://localhost:3001/auth?email=qwe@qwe.com
