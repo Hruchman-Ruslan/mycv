@@ -1,6 +1,5 @@
 import {
   Body,
-  ClassSerializerInterceptor,
   Controller,
   Delete,
   Get,
@@ -14,6 +13,7 @@ import {
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UpdateDtoUser } from './dtos/update-user.dto';
 import { UsersService } from './users.service';
+import { SerializerInterceptor } from 'src/interceptors/serialize.interceptor';
 
 @Controller('auth')
 export class UsersController {
@@ -24,9 +24,10 @@ export class UsersController {
     this.userService.create(body.email, body.password);
   }
 
-  @UseInterceptors(ClassSerializerInterceptor)
+  @UseInterceptors(SerializerInterceptor)
   @Get('/:id')
   async finUser(@Param('id') id: string) {
+    console.log('handler is running');
     const user = await this.userService.findOne(parseInt(id));
 
     if (!user) {
