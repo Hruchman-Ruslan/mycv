@@ -27,7 +27,6 @@ export class UsersController {
   @UseInterceptors(SerializerInterceptor)
   @Get('/:id')
   async finUser(@Param('id') id: string) {
-    console.log('handler is running');
     const user = await this.userService.findOne(parseInt(id));
 
     if (!user) {
