@@ -4,9 +4,20 @@ POST http://localhost:3001/auth/signup
 content-type: application/json
 
 {
-  "email": "qwe@qwe.com",
+  "email": "qwe123@qwe.com",
   "password": "qwe123qwe"
 }
+
+### Signin
+
+POST http://localhost:3001/auth/signin
+content-type: application/json
+
+{
+  "email": "qwe123@qwe.com",
+  "password": "qwe123qwe"
+}
+
 
 ### Find a particular user with a given ID
 GET http://localhost:3001/auth/2
