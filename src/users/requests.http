@@ -4,8 +4,8 @@ POST http://localhost:3001/auth/signup
 content-type: application/json
 
 {
-  "email": "qwe123@qwe.com",
-  "password": "qwe123qwe"
+  "email": "qwe123qwe@qwe.com",
+  "password": "qwe123qwe123"
 }
 
 ### Signin
@@ -14,8 +14,8 @@ POST http://localhost:3001/auth/signin
 content-type: application/json
 
 {
-  "email": "qwe123@qwe.com",
-  "password": "qwe123qwe"
+  "email": "qwe123qwe@qwe.com",
+  "password": "qwe123qwe123"
 }
 
 
@@ -35,9 +35,3 @@ content-type: application/json
 {
   "password": "qwe123qwe123"
 }
-
-### Set a color
-GET http://localhost:3001/auth/colors/red
-
-### Get the color
-GET http://localhost:3001/auth/colors
