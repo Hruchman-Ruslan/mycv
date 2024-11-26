@@ -55,7 +55,7 @@ export class UsersController {
   }
 
   @Get('/:id')
-  async finUser(@Param('id') id: string) {
+  async findUser(@Param('id') id: string) {
     const user = await this.usersService.findOne(parseInt(id));
 
     if (!user) {
