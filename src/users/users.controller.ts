@@ -25,7 +25,7 @@ import { AuthGuard } from 'src/guards/auth.guard';
 @Serialize(UserDto)
 export class UsersController {
   constructor(
-    private userService: UsersService,
+    private usersService: UsersService,
     private authService: AuthService,
   ) {}
 
@@ -56,7 +56,7 @@ export class UsersController {
 
   @Get('/:id')
   async finUser(@Param('id') id: string) {
-    const user = await this.userService.findOne(parseInt(id));
+    const user = await this.usersService.findOne(parseInt(id));
 
     if (!user) {
       throw new NotFoundException('user not found');
@@ -67,16 +67,16 @@ export class UsersController {
 
   @Get()
   findAllUsers(@Query('email') email: string) {
-    return this.userService.find(email);
+    return this.usersService.find(email);
   }
 
   @Delete('/:id')
   removeUser(@Param('id') id: string) {
-    return this.userService.remove(parseInt(id));
+    return this.usersService.remove(parseInt(id));
   }
 
   @Patch('/:id')
   updateUser(@Param('id') id: string, @Body() body: UpdateDtoUser) {
-    return this.userService.update(parseInt(id), body);
+    return this.usersService.update(parseInt(id), body);
   }
 }
