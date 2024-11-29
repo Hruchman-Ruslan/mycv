@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
+import { asapScheduler } from 'rxjs';
 
 describe('Authentication System', () => {
   let app: INestApplication;
@@ -27,5 +28,24 @@ describe('Authentication System', () => {
         expect(id).toBeDefined();
         expect(email).toEqual(email);
       });
+  });
+
+  it('signup as a new user then get the currently logged in user', async () => {
+    const email = 'qwe123qwe@qwe.com';
+
+    const res = await request(app.getHttpServer())
+      .post('/auth/signup')
+      .send({ email, password: 'qwe123qwe' })
+      .expect(201);
+
+    const cookie = res.get('Set-Cookie');
+
+    const { body } = await request
+      .agent(app.getHttpServer())
+      .get('/auth/whoami')
+      .set('Cookie', cookie)
+      .expect(200);
+
+    expect(body.email).toEqual(email);
   });
 });
